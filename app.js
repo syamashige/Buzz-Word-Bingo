@@ -2,10 +2,11 @@ const express = require('express');
 const app = express();
 const qs = require('querystring');
 const bp = require('body-parser');
+const PORT = process.env.PORT || 8000;
 
 
 
-// **** Test **** //
+// **** Test Connection **** //
 // app.get('/', (req, res) => {
 //     res.send('Hello World!');
 // });
@@ -16,4 +17,14 @@ const bp = require('body-parser');
 
 //     console.log(`Example app listening at http://${host}:${port}`);
 // });
+
+console.log("port", PORT);
+console.log("process.env", process.env)
+
+// app.use(express.static("/public"));
+
+app.get("/", (req, res) => {
+    res.sendFile(_dirname + "/public/index.html");
+})
+
 
